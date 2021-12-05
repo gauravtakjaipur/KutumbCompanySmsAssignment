@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Kutumb Sms Application</string>
+    <string name="KutumbSmsAssignment">KutumbSmsAssignment</string>
+    <string name="go_to_settings">Go to settings</string>
+    <string name="cancel">Cancel</string>
+    <string name="grant_permission_sms">Kindly grant the permission to access sms from settings app.</string>
+    <string name="_1_day_ago">1 Day Ago</string>
+    <string name="refresh">Refresh</string>
+    <string name="sms_details">Sms Details</string>
+    <string name="sender">Sender : %1$s</string>
+    <string name="receiver">Receiver : %1$s</string>
+    <string name="date_time">Date and Time : %1$s</string>
+    <string name="type">Type : %1$s</string>
+    <string name="message_body">Message Body : %1$s</string>
+
+</resources>

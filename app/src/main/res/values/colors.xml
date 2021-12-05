@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008080</color>
+    <color name="colorPrimaryDark">#2F4F4F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="textColorToolbar">@color/colorWhite</color>
+    <color name="colorGrey">#74777f</color>
+    <color name="colorGreyLight">#33b1b1b1</color>
+    <color name="colorGreyLight2">#bdbdbd</color>
+    <color name="colorRed">#fb6d6d</color>
+    <color name="colorBlackSubTitle">#5d5d5d</color>
+    <color name="colorBlueTitle">#4863A0</color>
+    <color name="colorBlackText">@color/colorBlack</color>
+    <color name="colorBackgroundToolbar">@color/colorPrimary</color>
+    <color name="colorTextGreen">@color/colorPrimary</color>
+    <color name="colorTextToolbar">@color/colorWhite</color>
+    <color name="colorBlackTextDescription">#5d5d5d</color>
+</resources>

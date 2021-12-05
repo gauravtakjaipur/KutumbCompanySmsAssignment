@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="space_margin_end">16dp</dimen>
+    <dimen name="space_margin">16dp</dimen>
+    <dimen name="padding_card">20dp</dimen>
+    <dimen name="radiusCardView">16dp</dimen>
+    <dimen name="card_view_sms_size">80dp</dimen>
+    <dimen name="space_margin_list">24dp</dimen>
+    <dimen name="space_margin_vertical_list_item">8dp</dimen>
+    <dimen name="space_10dp">10dp</dimen>
+    <dimen name="space_5dp">5dp</dimen>
+    <dimen name="space_30dp">30dp</dimen>
+
+    <!--text size-->
+    <dimen name="textSizeSubTitle">12sp</dimen>
+    <dimen name="textSizeDescription">12sp</dimen>
+    <dimen name="textSizeTitle">15sp</dimen>
+    <dimen name="textSizeHeaderText">16sp</dimen>
+    <dimen name="textSize_18sp">18sp</dimen>
+    <dimen name="textSize_20sp">20sp</dimen>
+    <dimen name="textSize_24sp">24sp</dimen>
+    <dimen name="textSize_15sp">15sp</dimen>
+</resources>

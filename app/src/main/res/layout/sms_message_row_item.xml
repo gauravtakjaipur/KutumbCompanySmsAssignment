@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/space_margin_list"
+    android:layout_marginVertical="@dimen/space_margin_vertical_list_item">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvHeaderLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="-20dp"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/space_10dp"
+        android:text="@string/_1_day_ago"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/textSizeHeaderText"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_5dp"
+        android:background="@color/colorWhite"
+        android:minHeight="@dimen/card_view_sms_size"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:cardCornerRadius="@dimen/radiusCardView"
+        app:cardElevation="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeaderLabel">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_card">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivMessageType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_incoming"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivExpand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_5dp"
+                android:src="@drawable/ic_right_expand_arrow_grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDateTime" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDateTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlackText"
+                android:textSize="@dimen/textSizeSubTitle"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_10dp"
+                android:layout_marginEnd="@dimen/space_30dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/colorBlackTextDescription"
+                android:textSize="@dimen/textSizeDescription"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivMessageType"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_10dp"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:maxLines="1"
+                android:minLines="1"
+                android:textColor="@color/colorBlackText"
+                android:textSize="@dimen/textSizeTitle"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/ivMessageType"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
