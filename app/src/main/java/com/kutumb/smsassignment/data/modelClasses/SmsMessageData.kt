@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 
-data class SmsMessage(
+data class SmsMessageData(
     var address: String? = null,
     var msgBodyText: String? = null,
     var readState: String? = null, //"0" for have not read sms and "1" for have read sms
@@ -36,12 +36,12 @@ data class SmsMessage(
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<SmsMessage> {
-        override fun createFromParcel(parcel: Parcel): SmsMessage {
-            return SmsMessage(parcel)
+    companion object CREATOR : Parcelable.Creator<SmsMessageData> {
+        override fun createFromParcel(parcel: Parcel): SmsMessageData {
+            return SmsMessageData(parcel)
         }
 
-        override fun newArray(size: Int): Array<SmsMessage?> {
+        override fun newArray(size: Int): Array<SmsMessageData?> {
             return arrayOfNulls(size)
         }
     }

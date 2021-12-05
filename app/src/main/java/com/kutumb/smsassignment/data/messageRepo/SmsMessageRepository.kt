@@ -2,7 +2,7 @@ package com.kutumb.smsassignment.data.messageRepo
 
 import android.content.Context
 import android.provider.Telephony.Sms
-import com.kutumb.smsassignment.data.modelClasses.SmsMessage
+import com.kutumb.smsassignment.data.modelClasses.SmsMessageData
 import com.kutumb.smsassignment.data.modelClasses.SmsMessageType
 import com.kutumb.smsassignment.presentation.smsListing.SmsListingHeaderHelper
 
@@ -16,9 +16,9 @@ class SmsMessageRepository (
      * Retrieve SMS messages by page
      * @return
      */
-    fun getSmsMessages(limit: Int, offset: Int): List<SmsMessage>
+    fun getSmsMessages(limit: Int, offset: Int): List<SmsMessageData>
     {
-        val messages = mutableListOf<SmsMessage>()
+        val messages = mutableListOf<SmsMessageData>()
         val cursor = context.contentResolver.query(
             Sms.CONTENT_URI,
             arrayOf<String>(
@@ -47,7 +47,7 @@ class SmsMessageRepository (
                     SmsMessageType.SENT
                 }
                 val headerTextIsShowHeaderPair = timeStamp.let { SmsListingHeaderHelper.isHeaderViewShowHide(it) }
-                messages.add(SmsMessage(phoneOrSender, msgText,readStatus, timeStamp,smsType.ordinal,headerTextIsShowHeaderPair.first,headerTextIsShowHeaderPair.second))
+                messages.add(SmsMessageData(phoneOrSender, msgText,readStatus, timeStamp,smsType.ordinal,headerTextIsShowHeaderPair.first,headerTextIsShowHeaderPair.second))
                 cursor.moveToNext()
             }
             cursor.close()

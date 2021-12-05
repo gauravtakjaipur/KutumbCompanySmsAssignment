@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.telephony.SmsMessage
 import android.util.Log
+import com.kutumb.smsassignment.data.modelClasses.SmsMessageData
 import com.kutumb.smsassignment.data.modelClasses.SmsMessageType
 import com.kutumb.smsassignment.helpers.NotificationHelper
 import com.kutumb.smsassignment.presentation.smsListing.SmsListingActivity
@@ -25,7 +26,7 @@ class SmsBroadcastReceiver : BroadcastReceiver() {
                     Log.i(TAG, "Message received: " + messages[0]?.messageBody)
                     if(messages[0] != null) {
                         val smsMessage = messages[0] as SmsMessage
-                        val smsMessageData: com.kutumb.smsassignment.data.modelClasses.SmsMessage = com.kutumb.smsassignment.data.modelClasses.SmsMessage(smsMessage.displayOriginatingAddress,smsMessage.messageBody,"0",smsMessage.timestampMillis,SmsMessageType.RECEIVED.ordinal,"",false )
+                        val smsMessageData = SmsMessageData(smsMessage.displayOriginatingAddress,smsMessage.messageBody,"0",smsMessage.timestampMillis,SmsMessageType.RECEIVED.ordinal,"",false )
                         context?.let {
                             NotificationHelper.showNotification(
                                     it,

@@ -1,8 +1,8 @@
 package com.kutumb.smsassignment.presentation.smsListing
 
-import com.kutumb.smsassignment.data.modelClasses.SmsMessage
+import com.kutumb.smsassignment.data.modelClasses.SmsMessageData
 
 
 interface SmsListItemClickInterface {
-    fun onItemClick(smsMessageData: SmsMessage)
+    fun onItemClick(smsMessageData: SmsMessageData)
 }

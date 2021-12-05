@@ -6,7 +6,7 @@ import androidx.activity.viewModels
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.lifecycleScope
 import com.kutumb.smsassignment.R
-import com.kutumb.smsassignment.data.modelClasses.SmsMessage
+import com.kutumb.smsassignment.data.modelClasses.SmsMessageData
 import com.kutumb.smsassignment.helpers.IntentConstants
 import com.kutumb.smsassignment.helpers.NotificationHelper
 import com.kutumb.smsassignment.helpers.PermissionHelper
@@ -55,7 +55,7 @@ class SmsListingActivity : BaseActivity() {
     private fun setUpView() {
         setSupportActionBar(toolbar)
         val listItemClickInterface = object : SmsListItemClickInterface {
-            override fun onItemClick(smsMessageData: SmsMessage) {
+            override fun onItemClick(smsMessageData: SmsMessageData) {
                 startActivity(Intent(this@SmsListingActivity, SmsDetailsActivity::class.java).putExtra(IntentConstants.SMS_MESSAGE_DATA, smsMessageData))
             }
         }

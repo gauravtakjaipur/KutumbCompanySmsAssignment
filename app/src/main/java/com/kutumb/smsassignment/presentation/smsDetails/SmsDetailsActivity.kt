@@ -6,7 +6,7 @@ import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.annotation.VisibleForTesting
 import com.kutumb.smsassignment.R
-import com.kutumb.smsassignment.data.modelClasses.SmsMessage
+import com.kutumb.smsassignment.data.modelClasses.SmsMessageData
 import com.kutumb.smsassignment.data.modelClasses.SmsMessageType
 import com.kutumb.smsassignment.extensions.getDateValueWithDateAndTime
 import com.kutumb.smsassignment.helpers.IntentConstants
@@ -40,7 +40,7 @@ class SmsDetailsActivity: BaseActivity() {
     }
 
     private fun setUpView() {
-        viewModel.smsMessageData = intent.getParcelableExtra<SmsMessage>(IntentConstants.SMS_MESSAGE_DATA)
+        viewModel.smsMessageData = intent.getParcelableExtra<SmsMessageData>(IntentConstants.SMS_MESSAGE_DATA)
         Log.i( "setUpView: ","Intent Data ${viewModel.smsMessageData?.address} ${viewModel.smsMessageData?.msgBodyText} ${viewModel.smsMessageData?.readState} ${viewModel.smsMessageData?.time?.getDateValueWithDateAndTime()}")
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

@@ -9,13 +9,13 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.kutumb.smsassignment.R
-import com.kutumb.smsassignment.data.modelClasses.SmsMessage
+import com.kutumb.smsassignment.data.modelClasses.SmsMessageData
 import com.kutumb.smsassignment.data.modelClasses.SmsMessageType
 import com.kutumb.smsassignment.extensions.getDateValueWithDateAndTime
 import kotlinx.android.synthetic.main.sms_message_row_item.view.*
 
-class SmsMessageAdapter(diffCallback: DiffUtil.ItemCallback<SmsMessage>,var smsListItemClickInterface: SmsListItemClickInterface) :
-    PagingDataAdapter<SmsMessage, SmsMessageViewHolder>(diffCallback) {
+class SmsMessageAdapter(diffCallback: DiffUtil.ItemCallback<SmsMessageData>, var smsListItemClickInterface: SmsListItemClickInterface) :
+    PagingDataAdapter<SmsMessageData, SmsMessageViewHolder>(diffCallback) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -37,39 +37,39 @@ class SmsMessageViewHolder(parent :ViewGroup) : RecyclerView.ViewHolder(
     private val bodyView = itemView.tvDescription
     private val ivMessageType = itemView.ivMessageType
     private val tvHeader = itemView.tvHeaderLabel
-    fun bindTo(message: SmsMessage, smsListItemClickInterface: SmsListItemClickInterface) {
-        senderView.text = message.address
-        dateTimeView.text = message.time.getDateValueWithDateAndTime()
-        bodyView.text = message.msgBodyText
-        if(message.isShowHeader) {
+    fun bindTo(messageData: SmsMessageData, smsListItemClickInterface: SmsListItemClickInterface) {
+        senderView.text = messageData.address
+        dateTimeView.text = messageData.time.getDateValueWithDateAndTime()
+        bodyView.text = messageData.msgBodyText
+        if(messageData.isShowHeader) {
             tvHeader.visibility = View.VISIBLE
-            tvHeader.text = message.headerValue
+            tvHeader.text = messageData.headerValue
         } else {
             tvHeader.visibility = View.GONE
         }
-        Log.i("bindTo: ","Type ${SmsMessageType.RECEIVED.ordinal} ${SmsMessageType.SENT.ordinal} ${message.type}")
-        if (message.type == SmsMessageType.RECEIVED.ordinal) {
+        Log.i("bindTo: ","Type ${SmsMessageType.RECEIVED.ordinal} ${SmsMessageType.SENT.ordinal} ${messageData.type}")
+        if (messageData.type == SmsMessageType.RECEIVED.ordinal) {
             ivMessageType.setImageResource(R.drawable.ic_incoming)
         } else {
             ivMessageType.setImageResource(R.drawable.ic_outgoing)
         }
-        if (message.readState == "0") {
+        if (messageData.readState == "0") {
             bodyView.setTextColor(ContextCompat.getColor(itemView.context,R.color.colorBlackText))
         } else {
             bodyView.setTextColor(ContextCompat.getColor(itemView.context,R.color.colorGrey))
         }
         itemView.setOnClickListener {
-            smsListItemClickInterface.onItemClick(smsMessageData = message)
+            smsListItemClickInterface.onItemClick(smsMessageData = messageData)
         }
     }
 }
 
-object SmsMessageComparator : DiffUtil.ItemCallback<SmsMessage>() {
-    override fun areItemsTheSame(oldItem: SmsMessage, newItem: SmsMessage): Boolean {
+object SmsMessageComparator : DiffUtil.ItemCallback<SmsMessageData>() {
+    override fun areItemsTheSame(oldItem: SmsMessageData, newItem: SmsMessageData): Boolean {
         return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: SmsMessage, newItem: SmsMessage): Boolean {
+    override fun areContentsTheSame(oldItem: SmsMessageData, newItem: SmsMessageData): Boolean {
         return oldItem == newItem
     }
 }

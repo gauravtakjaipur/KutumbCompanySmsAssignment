@@ -1,17 +1,17 @@
 package com.kutumb.smsassignment.data.messageRepo
 
 import androidx.paging.PagingSource
-import com.kutumb.smsassignment.data.modelClasses.SmsMessage
+import com.kutumb.smsassignment.data.modelClasses.SmsMessageData
 
 /**
  * PagingSource that loads data from a content provider.
  */
-class SmsMessagePagingSource(val repo: SmsMessageRepository) : PagingSource<Int, SmsMessage>() {
+class SmsMessagePagingSource(val repo: SmsMessageRepository) : PagingSource<Int, SmsMessageData>() {
 
     // the initial load size for the first page may be different from the requested size
     var initialLoadSize: Int = 0
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SmsMessage> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SmsMessageData> {
         try {
             // Start refresh at page 1 if undefined.
             val nextPageNumber = params.key ?: 1
